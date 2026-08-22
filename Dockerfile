@@ -82,19 +82,21 @@ COPY . .
 # =========================================================
 # VITE BUILD VARIABLES
 #
-# Render converts environment variables into Docker build
-# arguments automatically.
-#
-# Only browser-safe VITE_* values should be used here.
-# NEVER add GROQ / COHERE / SUPABASE SECRET KEY here.
+# These values are inserted into the React/Vite build.
+# Only browser-safe VITE_* values belong here.
 # =========================================================
 
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
 ARG VITE_ASSISTANT_API_URL
 ARG VITE_VOICE_API_URL
 ARG VITE_ASSISTANT_VOICE
 ARG VITE_INPUT_LANGUAGE
 
-ENV VITE_ASSISTANT_API_URL=${VITE_ASSISTANT_API_URL} \
+
+ENV VITE_SUPABASE_URL=${VITE_SUPABASE_URL} \
+    VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY} \
+    VITE_ASSISTANT_API_URL=${VITE_ASSISTANT_API_URL} \
     VITE_VOICE_API_URL=${VITE_VOICE_API_URL} \
     VITE_ASSISTANT_VOICE=${VITE_ASSISTANT_VOICE} \
     VITE_INPUT_LANGUAGE=${VITE_INPUT_LANGUAGE}
@@ -112,11 +114,13 @@ RUN cd client \
 # RUNTIME
 #
 # Render provides PORT automatically.
-# server/src/index.js uses:
 #
-# process.env.PORT || 5000
+# Express serves:
+# - React frontend
+# - /api/assistant/*
+# - /api/voice/*
 #
-# Express serves client/dist on the same port.
+# all from the same Render service.
 # =========================================================
 
 EXPOSE 10000
