@@ -1,0 +1,21 @@
+{
+  "name": "echoo-grocery-voice-server",
+  "version": "1.0.0",
+  "description": "Node server for EchOo Grocery Voice Shopping Assistant",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
