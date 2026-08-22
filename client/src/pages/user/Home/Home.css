@@ -1,0 +1,15 @@
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f0f2f5, #e2e5e9);
+  color: #111827;
+  font-family: Arial, sans-serif;
+}
+
+.home-showcase-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.home-footer-wrap {
+  color: #000000;
+}

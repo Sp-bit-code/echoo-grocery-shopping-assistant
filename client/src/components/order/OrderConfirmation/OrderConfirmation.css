@@ -1,0 +1,6 @@
+/* OrderConfirmation styles */
+/* Main design is handled with Tailwind classes inside OrderConfirmation.jsx */
+
+.order-confirmation {
+  width: 100%;
+}

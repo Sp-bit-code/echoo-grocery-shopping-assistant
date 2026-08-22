@@ -1,0 +1,55 @@
+/* =========================================================
+   Echoo Grocery Theme
+   Original Echoo blue / white visual style preserved
+   ========================================================= */
+
+:root {
+  /* Main background gradient */
+  --echoo-bg-start: #d9e8f5;
+  --echoo-bg-middle: #e2ebf4;
+  --echoo-bg-end: #f4f7fa;
+
+  /* Text */
+  --echoo-text-dark: #111827;
+  --echoo-text-primary: #1f2937;
+  --echoo-text-muted: #6b7280;
+  --echoo-text-light: #9ca3af;
+
+  /* Glass cards */
+  --echoo-card-bg: rgba(255, 255, 255, 0.4);
+  --echoo-card-bg-strong: rgba(255, 255, 255, 0.72);
+  --echoo-card-border: rgba(255, 255, 255, 0.6);
+
+  /* Main blue */
+  --echoo-primary: #2563eb;
+  --echoo-primary-hover: #1d4ed8;
+  --echoo-primary-light: #dbeafe;
+
+  /* Secondary blue */
+  --echoo-blue-soft: #bfdbfe;
+  --echoo-blue-muted: #93c5fd;
+
+  /* Basic surfaces */
+  --echoo-white: #ffffff;
+  --echoo-surface: #f8fafc;
+  --echoo-border: #e5e7eb;
+
+  /* Status colours */
+  --echoo-success: #16a34a;
+  --echoo-warning: #f59e0b;
+  --echoo-danger: #dc2626;
+
+  /* Shadows */
+  --echoo-shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --echoo-shadow-md: 0 10px 30px rgba(15, 23, 42, 0.1);
+  --echoo-shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.14);
+
+  /* Border radius */
+  --echoo-radius-sm: 8px;
+  --echoo-radius-md: 14px;
+  --echoo-radius-lg: 22px;
+  --echoo-radius-pill: 999px;
+
+  /* Transitions */
+  --echoo-transition: 0.25s ease;
+}

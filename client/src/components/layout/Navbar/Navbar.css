@@ -1,0 +1,281 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  width: 100%;
+}
+
+/* =========================================================
+   ECHOO LOGO
+========================================================= */
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  color: #111827;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  font-size: 1.48rem;
+  font-weight: 700;
+
+  letter-spacing: -0.05em;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-logo:hover {
+  color: #111827;
+
+  opacity: 0.78;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   GROCERY NAVIGATION LINKS
+========================================================= */
+
+.navbar-category-link {
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.45rem 0.72rem;
+
+  color: #111827;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  font-size: 0.88rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-category-link:hover {
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  border-color:
+    rgba(255, 255, 255, 0.65);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   ACTIVE CATEGORY
+========================================================= */
+
+.navbar-category-link.active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      180deg,
+      #657080 0%,
+      #374151 52%,
+      #151b25 100%
+    );
+
+  border-color:
+    rgba(75, 85, 99, 0.75);
+
+  box-shadow:
+    inset 0 1px 2px
+      rgba(255, 255, 255, 0.32),
+    0 4px 10px
+      rgba(17, 24, 39, 0.22);
+
+  transform: none;
+}
+
+.navbar-category-link.active:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #657080 0%,
+      #374151 52%,
+      #151b25 100%
+    );
+}
+
+/* =========================================================
+   AI ASSISTANT
+========================================================= */
+
+.navbar-ai-link {
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.45rem 0.72rem;
+
+  color: #111827;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  font-size: 0.88rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-ai-link:hover {
+  background:
+    rgba(255, 255, 255, 0.62);
+
+  border-color:
+    rgba(255, 255, 255, 0.65);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   RIGHT SIDE ICONS
+========================================================= */
+
+.navbar-icon-link,
+.navbar-icon-button {
+  width: 2.2rem;
+  height: 2.2rem;
+
+  flex: 0 0 2.2rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color: #111827;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-icon-link:hover,
+.navbar-icon-button:hover {
+  background:
+    rgba(255, 255, 255, 0.68);
+
+  border-color:
+    rgba(255, 255, 255, 0.72);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   AUTH BUTTON AREA
+========================================================= */
+
+.navbar button,
+.navbar a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   RESPONSIVE - SMALL DESKTOP
+========================================================= */
+
+@media (max-width: 1280px) {
+  .navbar-category-link,
+  .navbar-ai-link {
+    padding-left: 0.58rem;
+    padding-right: 0.58rem;
+
+    font-size: 0.82rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.4rem;
+  }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+  .navbar-category-link,
+  .navbar-ai-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .navbar-logo {
+    font-size: 1.25rem;
+  }
+
+  .navbar-icon-link,
+  .navbar-icon-button {
+    width: 2rem;
+    height: 2rem;
+
+    flex-basis: 2rem;
+  }
+}

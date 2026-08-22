@@ -1,0 +1,319 @@
+.admin-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(17, 24, 39, 0.5);
+}
+
+.admin-sidebar {
+  position: fixed;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 50;
+
+  width: 18rem;
+  margin: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(24px);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+
+  transform: translateX(-120%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.admin-sidebar-open {
+  transform: translateX(0);
+}
+
+.admin-sidebar-closed {
+  transform: translateX(-120%);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.5rem;
+
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  color: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+/* Text replacement for old image logo */
+
+.admin-sidebar-logo-text {
+  width: 3rem;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 1rem;
+
+  background: linear-gradient(to bottom, #6b7280, #1f2937);
+
+  border: 1px solid #4b5563;
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    0 4px 10px rgba(0, 0, 0, 0.16);
+
+  color: #ffffff;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.admin-sidebar-title {
+  margin: 0;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.admin-sidebar-subtitle {
+  margin: 0.15rem 0 0;
+
+  font-size: 0.75rem;
+
+  color: #6b7280;
+}
+
+.admin-sidebar-close {
+  padding: 0.5rem;
+
+  border: 0;
+  border-radius: 0.75rem;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.admin-sidebar-close:hover {
+  background: #f3f4f6;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.admin-sidebar-nav {
+  flex: 1;
+
+  padding: 1rem;
+
+  overflow-y: auto;
+}
+
+.admin-sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.admin-sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.75rem 1rem;
+
+  border-radius: 1rem;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.admin-sidebar-link-left {
+  display: flex;
+  align-items: center;
+}
+
+.admin-sidebar-link-text {
+  margin-left: 0.75rem;
+
+  font-weight: 500;
+}
+
+.admin-sidebar-link-active {
+  color: #ffffff;
+
+  background: linear-gradient(to bottom, #6b7280, #1f2937);
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+
+  border: 1px solid #4b5563;
+}
+
+.admin-sidebar-link-normal {
+  color: #4b5563;
+
+  border: 1px solid transparent;
+}
+
+.admin-sidebar-link-normal:hover {
+  color: #111827;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  border-color: rgba(255, 255, 255, 0.5);
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.admin-sidebar-footer {
+  margin: auto 1rem 1rem;
+
+  padding: 1rem 1.1rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.2rem;
+
+  background: rgba(255, 255, 255, 0.38);
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025);
+}
+
+.admin-sidebar-footer p {
+  margin: 0;
+
+  color: #374151;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.admin-sidebar-footer span {
+  display: block;
+
+  margin-top: 0.2rem;
+
+  color: #9ca3af;
+
+  font-size: 0.65rem;
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.admin-sidebar-mobile-button {
+  position: fixed;
+
+  top: 1.5rem;
+  left: 1.5rem;
+
+  z-index: 40;
+
+  padding: 0.75rem;
+
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1024px) {
+  .admin-sidebar {
+    position: static;
+
+    top: auto;
+    bottom: auto;
+    left: auto;
+
+    height: calc(100vh - 2rem);
+
+    transform: translateX(0);
+
+    flex-shrink: 0;
+  }
+
+  .admin-sidebar-backdrop {
+    display: none;
+  }
+
+  .admin-sidebar-close {
+    display: none;
+  }
+
+  .admin-sidebar-mobile-button {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .admin-sidebar {
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+
+    width: min(17rem, calc(100vw - 2rem));
+
+    margin: 0.5rem;
+  }
+
+  .admin-sidebar-header {
+    padding: 1.25rem;
+  }
+
+  .admin-sidebar-mobile-button {
+    top: 1rem;
+    left: 1rem;
+  }
+}

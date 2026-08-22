@@ -1,0 +1,11 @@
+.user-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111111;
+}
+
+.user-layout-main {
+  width: 100%;
+  min-height: 100vh;
+}

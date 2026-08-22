@@ -1,0 +1,698 @@
+/* =========================================================
+   PRODUCT PAGE
+========================================================= */
+
+.product-page {
+  width: 100%;
+  min-height: 100vh;
+
+  color: #111827;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+}
+
+/* =========================================================
+   MAIN GLASS CARDS
+========================================================= */
+
+.product-page section,
+.product-page [class*="backdrop-blur-xl"] {
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-page img {
+  user-select: none;
+}
+
+.product-page img[alt] {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* =========================================================
+   PRODUCT IMAGE CARD
+========================================================= */
+
+.product-page .product-image-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(223, 235, 246, 0.95),
+      rgba(244, 247, 250, 0.95)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.78);
+
+  border-radius: 40px;
+
+  box-shadow:
+    0 16px 45px
+      rgba(15, 23, 42, 0.055),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================================
+   PRODUCT INFO / PURCHASE / DETAILS CARDS
+========================================================= */
+
+.product-page .product-info-card,
+.product-page .product-purchase-card,
+.product-page .product-overview-card,
+.product-page .product-details-card {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.48
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.76
+    );
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 12px 36px
+      rgba(
+        15,
+        23,
+        42,
+        0.05
+      );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   PRODUCT NAME
+========================================================= */
+
+.product-page h1 {
+  color: #111827;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  letter-spacing: -0.055em;
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.product-page h2,
+.product-page h3 {
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  color: #111827;
+}
+
+/* =========================================================
+   PACK SIZE SELECTOR
+========================================================= */
+
+.product-page .product-pack-options {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.product-page .product-pack-option {
+  min-width: 72px;
+
+  padding: 9px 13px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #4b5563;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  border:
+    1px solid
+    rgba(
+      209,
+      213,
+      219,
+      0.82
+    );
+
+  border-radius: 12px;
+
+  font-family:
+    "SF Pro Display",
+    "DM Sans",
+    sans-serif;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.product-page
+  .product-pack-option:hover {
+  color: #111827;
+
+  background: #ffffff;
+
+  border-color: #aeb7c3;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   ACTIVE PACK
+
+   Original Echoo dark bubble style.
+========================================================= */
+
+.product-page
+  .product-pack-option-active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6b7280 0%,
+      #4b5563 38%,
+      #1f2937 100%
+    );
+
+  border-color: #4b5563;
+
+  box-shadow:
+    inset 0 2px 4px
+      rgba(
+        255,
+        255,
+        255,
+        0.28
+      ),
+    0 5px 12px
+      rgba(
+        15,
+        23,
+        42,
+        0.18
+      );
+
+  transform: none;
+}
+
+/* =========================================================
+   OUT OF STOCK PACK
+========================================================= */
+
+.product-page
+  .product-pack-option-disabled {
+  color: #9ca3af;
+
+  background:
+    rgba(
+      243,
+      244,
+      246,
+      0.7
+    );
+
+  border-color: #e5e7eb;
+
+  text-decoration: line-through;
+
+  opacity: 0.6;
+}
+
+/* =========================================================
+   QUANTITY BOX
+========================================================= */
+
+.product-page .product-quantity-control {
+  width: 100%;
+
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.85
+    );
+
+  border-radius: 999px;
+}
+
+.product-page
+  .product-quantity-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #374151;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f3;
+  border-radius: 50%;
+
+  box-shadow:
+    0 3px 10px
+      rgba(
+        15,
+        23,
+        42,
+        0.06
+      );
+
+  transition:
+    transform 0.17s ease,
+    box-shadow 0.17s ease;
+}
+
+.product-page
+  .product-quantity-button:hover:not(
+    :disabled
+  ) {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 5px 12px
+      rgba(
+        15,
+        23,
+        42,
+        0.1
+      );
+}
+
+.product-page
+  .product-quantity-button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   PURCHASE INFORMATION
+========================================================= */
+
+.product-page .product-order-info {
+  padding: 16px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.38
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  border-radius: 18px;
+}
+
+/* =========================================================
+   ORIGINAL ECHOO BUTTON
+========================================================= */
+
+.product-page .product-primary-button {
+  width: 100%;
+
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6b7280 0%,
+      #4b5563 40%,
+      #1f2937 100%
+    );
+
+  border:
+    1px solid
+    #4b5563;
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 2px 4px
+      rgba(
+        255,
+        255,
+        255,
+        0.3
+      ),
+    0 5px 14px
+      rgba(
+        15,
+        23,
+        42,
+        0.2
+      );
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-page
+  .product-primary-button:hover:not(
+    :disabled
+  ) {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    inset 0 2px 4px
+      rgba(
+        255,
+        255,
+        255,
+        0.32
+      ),
+    0 8px 18px
+      rgba(
+        15,
+        23,
+        42,
+        0.25
+      );
+}
+
+.product-page
+  .product-primary-button:disabled {
+  color: #9ca3af;
+
+  background: #d1d5db;
+
+  border-color: #d1d5db;
+
+  box-shadow: none;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   OVERVIEW HIGHLIGHT
+========================================================= */
+
+.product-page
+  .product-highlight-item {
+  padding: 12px 14px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  color: #4b5563;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  border-radius: 14px;
+}
+
+/* =========================================================
+   PRODUCT DETAILS ROW
+========================================================= */
+
+.product-page .product-detail-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(115px, 0.38fr)
+    minmax(0, 1fr);
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.6
+    );
+}
+
+.product-page
+  .product-detail-row:last-child {
+  border-bottom: 0;
+}
+
+.product-page
+  .product-detail-label {
+  padding: 15px 18px;
+
+  color: #111827;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.product-page
+  .product-detail-value {
+  min-width: 0;
+
+  padding: 15px 18px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.product-page::-webkit-scrollbar {
+  width: 7px;
+}
+
+.product-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.product-page::-webkit-scrollbar-thumb {
+  background:
+    rgba(
+      107,
+      114,
+      128,
+      0.25
+    );
+
+  border-radius: 999px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+  .product-page h1 {
+    font-size: 3rem;
+  }
+
+  .product-page
+    .product-info-card,
+  .product-page
+    .product-purchase-card,
+  .product-page
+    .product-overview-card,
+  .product-page
+    .product-details-card {
+    border-radius: 25px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .product-page {
+    padding-top: 68px;
+  }
+
+  .product-page h1 {
+    font-size: 2.6rem;
+  }
+
+  .product-page
+    .product-pack-options {
+    gap: 6px;
+  }
+
+  .product-page
+    .product-pack-option {
+    min-width: 64px;
+
+    padding:
+      8px
+      10px;
+
+    font-size: 11px;
+  }
+
+  .product-page
+    .product-detail-row {
+    grid-template-columns:
+      110px
+      minmax(0, 1fr);
+  }
+
+  .product-page
+    .product-detail-label,
+  .product-page
+    .product-detail-value {
+    padding:
+      13px
+      14px;
+
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .product-page h1 {
+    font-size: 2.3rem;
+  }
+
+  .product-page
+    .product-detail-row {
+    grid-template-columns: 1fr;
+  }
+
+  .product-page
+    .product-detail-label {
+    padding-bottom: 5px;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.3
+      );
+  }
+
+  .product-page
+    .product-detail-value {
+    padding-top: 5px;
+  }
+}

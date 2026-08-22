@@ -1,0 +1,748 @@
+/* =========================================================
+   PRODUCT SHOWCASE
+========================================================= */
+
+.product-showcase {
+  position: relative;
+  overflow: hidden;
+
+  font-family:
+    "SF Pro Display",
+    "SF Pro Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================================
+   SECTION TYPOGRAPHY
+========================================================= */
+
+.product-showcase-eyebrow {
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: #7b8491;
+}
+
+.product-showcase-title {
+  margin: 0;
+
+  font-family:
+    "SF Pro Display",
+    "SF Pro Text",
+    sans-serif;
+
+  font-size: clamp(
+    2.8rem,
+    5vw,
+    4.8rem
+  );
+
+  font-weight: 300;
+
+  line-height: 0.97;
+
+  letter-spacing: -0.055em;
+
+  color: #111827;
+}
+
+.product-showcase-title-muted {
+  display: block;
+
+  color: #6d7683;
+
+  font-weight: 300;
+}
+
+.product-showcase-subtitle {
+  max-width: 570px;
+
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 1rem;
+  font-weight: 300;
+
+  line-height: 1.75;
+
+  letter-spacing: -0.01em;
+
+  color: #7b8491;
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-showcase-card {
+  position: relative;
+  overflow: hidden;
+
+  isolation: isolate;
+
+  border-radius: 3rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(246, 249, 252, 0.82) 42%,
+      rgba(229, 238, 247, 0.82) 100%
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 1px 0
+      rgba(255, 255, 255, 0.9)
+      inset,
+    0 20px 55px
+      rgba(15, 23, 42, 0.065);
+
+  transition:
+    transform 0.45s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+}
+
+.product-showcase-card:hover {
+  transform:
+    translateY(-7px);
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      1
+    );
+
+  box-shadow:
+    0 1px 0
+      rgba(255, 255, 255, 1)
+      inset,
+    0 30px 75px
+      rgba(
+        15,
+        23,
+        42,
+        0.11
+      );
+}
+
+/* =========================================================
+   SUBTLE CARD SHINE
+========================================================= */
+
+.product-showcase-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      125deg,
+      rgba(
+          255,
+          255,
+          255,
+          0.7
+        )
+        0%,
+      transparent 36%,
+      transparent 70%,
+      rgba(
+          200,
+          219,
+          236,
+          0.18
+        )
+        100%
+    );
+
+  opacity: 0.8;
+}
+
+/* =========================================================
+   DECORATIVE GLOW
+========================================================= */
+
+.product-showcase-glow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      205,
+      224,
+      242,
+      0.46
+    );
+
+  filter:
+    blur(75px);
+
+  pointer-events: none;
+
+  opacity: 0.75;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.5s ease;
+}
+
+.product-showcase-card:hover
+  .product-showcase-glow {
+  transform:
+    scale(1.12);
+
+  opacity: 0.9;
+}
+
+/* =========================================================
+   CATEGORY / RATING PILLS
+========================================================= */
+
+.product-showcase-pill {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.38rem;
+
+  padding:
+    0.42rem
+    0.8rem;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.95
+    );
+
+  box-shadow:
+    0 3px 12px
+      rgba(
+        15,
+        23,
+        42,
+        0.025
+      );
+
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  color: #4b5563;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.product-showcase-brand {
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.69rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.21em;
+
+  text-transform: uppercase;
+
+  color: #9aa3af;
+}
+
+/* =========================================================
+   PRODUCT NAME
+========================================================= */
+
+.product-showcase-name {
+  font-family:
+    "SF Pro Display",
+    "SF Pro Text",
+    sans-serif;
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      2.7rem
+    );
+
+  font-weight: 300;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.052em;
+
+  color: #111827;
+
+  transition:
+    transform 0.45s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+.product-showcase-card:hover
+  .product-showcase-name {
+  transform:
+    translateX(3px);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.product-showcase-description {
+  max-width: 540px;
+
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.98rem;
+
+  font-weight: 300;
+
+  line-height: 1.72;
+
+  letter-spacing: -0.012em;
+
+  color: #707987;
+}
+
+/* =========================================================
+   PACK SIZE PILLS
+========================================================= */
+
+.product-showcase-pack {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0.4rem
+    0.82rem;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.95
+    );
+
+  box-shadow:
+    0 3px 12px
+      rgba(
+        15,
+        23,
+        42,
+        0.025
+      );
+
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.76rem;
+  font-weight: 400;
+
+  color: #647080;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.product-showcase-pack:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
+
+  transform:
+    translateY(-1px);
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.product-showcase-price-label {
+  font-family:
+    "SF Pro Text",
+    sans-serif;
+
+  font-size: 0.72rem;
+
+  font-weight: 400;
+
+  letter-spacing: 0.02em;
+
+  color: #98a1ad;
+}
+
+.product-showcase-price {
+  margin-top: 0.2rem;
+
+  font-family:
+    "SF Pro Display",
+    "SF Pro Text",
+    sans-serif;
+
+  font-size: 1.8rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+
+  color: #111827;
+}
+
+/* =========================================================
+   DARK ECHOO BUTTON
+========================================================= */
+
+.product-showcase-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  padding:
+    0.86rem
+    1.8rem;
+
+  border-radius: 999px;
+
+  border:
+    1px solid
+    rgba(
+      70,
+      78,
+      90,
+      0.8
+    );
+
+  background:
+    linear-gradient(
+      180deg,
+      #707886 0%,
+      #444d5b 34%,
+      #252d39 68%,
+      #141a24 100%
+    );
+
+  box-shadow:
+    inset 0 2px 3px
+      rgba(
+        255,
+        255,
+        255,
+        0.28
+      ),
+    inset 0 -1px 2px
+      rgba(
+        0,
+        0,
+        0,
+        0.25
+      ),
+    0 7px 16px
+      rgba(
+        15,
+        23,
+        42,
+        0.24
+      );
+
+  color: #ffffff;
+
+  font-family:
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 0.88rem;
+
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.product-showcase-button:hover {
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.08);
+
+  box-shadow:
+    inset 0 2px 3px
+      rgba(
+        255,
+        255,
+        255,
+        0.32
+      ),
+    0 10px 22px
+      rgba(
+        15,
+        23,
+        42,
+        0.28
+      );
+}
+
+.product-showcase-button:active {
+  transform:
+    translateY(0)
+    scale(0.98);
+}
+
+/* =========================================================
+   GLASS
+========================================================= */
+
+.product-showcase-glass {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+}
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.product-showcase-number {
+  position: absolute;
+
+  top: 1.8rem;
+  right: 2.2rem;
+
+  font-family:
+    "SF Pro Display",
+    sans-serif;
+
+  font-size: 4.2rem;
+
+  font-weight: 200;
+
+  letter-spacing: -0.07em;
+
+  line-height: 1;
+
+  color:
+    rgba(
+      17,
+      24,
+      39,
+      0.04
+    );
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+/* =========================================================
+   SMALL CARD
+========================================================= */
+
+.product-showcase-small-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.product-showcase-small-card:hover {
+  transform:
+    translateY(-4px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 1024px
+) {
+  .product-showcase-card {
+    border-radius:
+      2.5rem;
+  }
+
+  .product-showcase-name {
+    font-size:
+      2.15rem;
+  }
+
+  .product-showcase-number {
+    font-size:
+      3.5rem;
+  }
+}
+
+@media (
+  max-width: 640px
+) {
+  .product-showcase-card {
+    border-radius:
+      2rem;
+  }
+
+  .product-showcase-title {
+    font-size:
+      2.65rem;
+  }
+
+  .product-showcase-name {
+    font-size:
+      1.9rem;
+  }
+
+  .product-showcase-description {
+    font-size:
+      0.9rem;
+
+    line-height:
+      1.6;
+  }
+
+  .product-showcase-small-card {
+    border-radius:
+      1.5rem;
+  }
+
+  .product-showcase-number {
+    top:
+      1.5rem;
+
+    right:
+      1.5rem;
+
+    font-size:
+      3rem;
+  }
+
+  .product-showcase-button {
+    padding:
+      0.78rem
+      1.5rem;
+  }
+}
