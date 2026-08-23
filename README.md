@@ -2,20 +2,20 @@
 
 ## 1. Approach
 
-EchOo was developed as a modular, voice-enabled grocery shopping application that allows users to interact using both natural-language text and voice commands. The frontend is built with React and Vite, while Supabase provides authentication and persistent product, cart, profile, and order data.
+EchOo is a voice-enabled grocery shopping application built to provide a natural and conversational shopping experience. The frontend uses React and Vite, while Supabase manages authentication and persistent product, user, cart, and order data.
 
-Browser Speech Recognition captures voice commands and forwards recognized text through a Node.js voice service. The AI backend is built with FastAPI. Cohere is used for reasoning and selecting the appropriate product, cart, order, or RAG operation. Supabase remains the source of truth for product variants, prices, stock, carts, and orders, while Groq generates natural responses from verified backend results.
+Users can interact through text or browser-based voice commands. Voice input is captured using the Web Speech Recognition API and processed through a Node.js voice service. The FastAPI AI backend uses Cohere for reasoning and tool selection across product search, cart operations, orders, and RAG-based retrieval. Supabase remains the source of truth for live product data such as variants, prices, stock, carts, and orders. Groq generates natural-language responses using verified backend results.
 
-The application supports contextual conversations, product discovery, price/brand/size filtering, cart management, recommendations, alternatives, voice feedback, and text-to-speech responses.
+The system supports contextual follow-up commands, product filtering, cart management, alternatives, recommendations, visual feedback, loading states, and text-to-speech responses.
 
-The frontend and voice server are containerized and deployed on Render, while the AI backend is deployed as a separate Render service.
+The application is containerized with Docker and deployed on Render.
 
 ### Project Links
 
 | Resource | Link |
 |---|---|
 | 🌐 Live Website | [https://echoo-grocery-shopping-assistant.onrender.com/](https://echoo-grocery-shopping-assistant.onrender.com/) |
-| 💻 Website GitHub Repository | [https://github.com/Sp-bit-code/echoo-grocery-shopping-assistant](https://github.com/Sp-bit-code/echoo-grocery-shopping-assistant) |
+| 💻 Website GitHub | [https://github.com/Sp-bit-code/echoo-grocery-shopping-assistant](https://github.com/Sp-bit-code/echoo-grocery-shopping-assistant) |
 | 🤖 Voice Command Chatbot GitHub | [https://github.com/Sp-bit-code/Grocery-Chatbot-API](https://github.com/Sp-bit-code/Grocery-Chatbot-API) |
 | 🚀 Live AI Backend | [https://grocery-chatbot-api.onrender.com/](https://grocery-chatbot-api.onrender.com/) |
 
@@ -23,15 +23,15 @@ The frontend and voice server are containerized and deployed on Render, while th
 
 # 2. Project Explanation
 
-EchOo is a grocery shopping assistant designed to make product discovery and shopping more conversational. A user can type or speak commands such as **“Show me milk under ₹100”**, **“Find Maggi”**, **“Show the 32g variant”**, or **“Add it to my cart.”**
+EchOo allows users to shop using natural text or voice commands instead of navigating through traditional product filters manually.
 
-The assistant understands follow-up queries by carrying conversation context, allowing users to select a product or variant and refer to it naturally in the next message.
+For example, a user can say **“Show me milk under ₹100”**, **“Find Maggi”**, **“Show me the 32g variant”**, or **“Add it to my cart.”** The assistant maintains conversation context, allowing short follow-up commands to refer to previously selected products and variants.
 
-Search results are generated from real product data stored in Supabase. Products can include multiple SKU variants with different sizes, prices, and stock quantities. The assistant can also return alternatives and semantic product recommendations through RAG.
+Products are retrieved from Supabase and can contain multiple SKU variants with individual size, price, and stock information. RAG enables semantic product discovery, while the assistant can also provide alternatives and relevant recommendations.
 
-Voice interaction is handled directly in the browser for faster microphone access. Responses can also be spoken using the text-to-speech service.
+Authenticated users have isolated cart, profile, and order data. Voice responses are generated using Edge TTS and returned to the browser as audio.
 
-Authentication ensures that cart, profile, and order information belongs only to the authenticated user.
+The application provides visual confirmation of recognized commands, loading states, structured product results, cart actions, order information, and responsive interaction across the shopping experience.
 
 ---
 
@@ -39,72 +39,74 @@ Authentication ensures that cart, profile, and order information belongs only to
 
 | Category | Feature | Implementation |
 |---|---|---|
-| 🎙️ Voice Input | Voice command recognition | Browser microphone with Web Speech Recognition |
-| 🎙️ Voice Input | Real-time transcript | Recognized speech is displayed while the user speaks |
-| 🎙️ Voice Input | Automatic voice submission | Captured voice query is automatically submitted |
-| 🎙️ Voice Input | Configurable input language | Voice input language can be configured through environment settings |
-| 🧠 NLP | Natural-language commands | Users are not limited to predefined command formats |
-| 🧠 NLP | Context-aware conversation | Follow-up commands remember selected products and variants |
-| 🧠 NLP | AI reasoning | Cohere determines the appropriate tool/action for a request |
-| 🔎 Search | Product search | Search products using conversational text or voice |
-| 🔎 Search | Brand filtering | Search can include product brand |
-| 🔎 Search | Price filtering | Queries such as “milk under ₹100” are supported |
-| 🔎 Search | Size filtering | Users can select SKU variants such as 32g, 500ml, etc. |
-| 🔎 Search | Stock information | Available stock is returned with product variants |
+| 🎙️ Voice Input | Voice command recognition | Browser microphone using Web Speech Recognition |
+| 🎙️ Voice Input | Natural voice queries | Supports conversational shopping commands |
+| 🎙️ Voice Input | Real-time transcription | Recognized text is displayed while speaking |
+| 🎙️ Voice Input | Automatic submission | Voice query is automatically processed after recognition |
+| 🎙️ Voice Input | Configurable language | Input language can be configured through environment settings |
+| 🧠 NLP | Natural-language processing | Handles different ways of expressing the same shopping request |
+| 🧠 NLP | Context-aware conversation | Maintains selected product and variant context across follow-up queries |
+| 🧠 NLP | AI reasoning | Cohere determines whether product, cart, order, or RAG tools are required |
+| 🔎 Search | Product search | Search products using text or voice |
+| 🔎 Search | Brand filtering | Supports brand-specific product queries |
+| 🔎 Search | Price filtering | Supports commands such as “milk under ₹100” |
+| 🔎 Search | Size filtering | Supports SKU and product-size selection |
+| 🔎 Search | Stock availability | Displays stock information for available variants |
 | 🔎 Search | Semantic search | RAG supports meaning-based product discovery |
-| 🛒 Cart | Add products | Products can be added using text or voice commands |
-| 🛒 Cart | Remove products | Products can be removed from the cart |
-| 🛒 Cart | Quantity management | Cart quantities can be changed through natural commands |
-| 🛒 Cart | Variant-aware cart | Specific SKU/size selections are maintained |
-| 🛒 Cart | Persistent cart | Cart data is stored per authenticated user |
-| 🗂️ Products | Product categories | Products are organized by categories |
-| 💡 Suggestions | Product recommendations | RAG-based relevant product suggestions |
-| 💡 Suggestions | Product alternatives | Alternative products can be suggested when appropriate |
-| 📦 Orders | Order management | Orders and order details are stored in Supabase |
-| 📦 Orders | Order history | Authenticated users can view their previous orders |
-| 🔐 Authentication | Email/password login | Supabase authentication |
-| 🔐 Authentication | Google login | Google OAuth through Supabase |
-| 🔐 Authentication | User isolation | Protected operations use the verified Supabase user |
-| 👤 Profile | User profile | User profile information is stored in Supabase |
-| 🔊 Voice Output | Text-to-speech | Assistant responses can be spoken using Edge TTS |
-| 🔊 Voice Output | Stop Response | User can immediately stop assistant speech |
-| ⏳ UX | Loading states | Processing states are displayed during AI requests |
-| 👁️ UX | Visual feedback | Products, variants, cart actions and assistant responses are displayed |
-| 📱 UX | Responsive UI | Interface supports desktop and mobile layouts |
-| 🛠️ Admin | Product management | Admin interface supports grocery product management |
-| 🗄️ Database | Supabase PostgreSQL | Stores products, profiles, carts and orders |
-| 🔒 Security | JWT authentication | Protected AI operations use Supabase access tokens |
-| 🔒 Security | RLS-compatible architecture | User-specific operations are isolated |
-| 🚀 Deployment | Docker deployment | Application is containerized |
-| 🚀 Deployment | Render hosting | Frontend, voice server and AI backend are deployed |
+| 🛒 Cart | Add products | Products can be added through conversational commands |
+| 🛒 Cart | Remove products | Cart items can be removed through commands |
+| 🛒 Cart | Quantity management | Product quantities can be modified |
+| 🛒 Cart | Variant-aware cart | Selected SKU or size is retained during cart operations |
+| 🛒 Cart | Persistent cart | Cart data is stored for the authenticated user |
+| 🗂️ Products | Product categorization | Products are organized by grocery categories |
+| 💡 Suggestions | Product recommendations | Relevant products can be suggested through RAG |
+| 💡 Suggestions | Alternatives | Alternative products can be returned when appropriate |
+| 📦 Orders | Order creation | Orders can be created and stored |
+| 📦 Orders | Order details | Individual order details are maintained |
+| 📦 Orders | Order history | Users can view previous orders |
+| 🔐 Authentication | Email/password | Supabase authentication |
+| 🔐 Authentication | Google OAuth | Google authentication through Supabase |
+| 🔐 Authentication | User isolation | Protected operations are linked to the verified authenticated user |
+| 👤 Profile | User profile | User information is stored through Supabase |
+| 🔊 Voice Output | Text-to-speech | Assistant responses are converted to speech using Edge TTS |
+| 🔊 Voice Output | Stop Response | Users can immediately stop assistant speech |
+| ⏳ UX | Loading states | Visual processing states are displayed during AI operations |
+| 👁️ UX | Visual feedback | Recognized commands, products, variants, actions, cart and orders are displayed |
+| 📱 UX | Responsive interface | Interface is designed for desktop and mobile use |
+| 🛠️ Admin | Product management | Admin interface supports management of grocery products |
+| 🗄️ Database | Supabase PostgreSQL | Stores products, users, carts and orders |
+| 🔒 Security | JWT authentication | AI requests use authenticated Supabase access tokens |
+| 🔒 Security | RLS-compatible design | User-specific database operations remain isolated |
+| 🚀 Deployment | Docker | Application is containerized for production |
+| 🚀 Deployment | Render | Website, voice service and AI backend are deployed |
 
 ---
 
-# 4. Architecture
+# 4. System Architecture
 
 ```mermaid
 flowchart TD
 
-    U[User]
+    USER[User]
 
-    U -->|Text Query| UI[React + Vite Frontend]
-    U -->|Voice Command| STT[Browser Speech Recognition]
+    USER -->|Text Query| UI[React + Vite Frontend]
+    USER -->|Voice Command| STT[Browser Speech Recognition]
 
     STT --> UI
 
     UI -->|Authentication| AUTH[Supabase Auth]
 
-    UI -->|Typed AI Request| API[FastAPI AI Backend]
+    UI -->|Typed AI Query| API[FastAPI AI Backend]
     UI -->|Voice Request| NODE[Node.js Voice Server]
 
-    NODE -->|Authenticated Query| API
+    NODE -->|Transcript + Access Token| API
 
     API --> COHERE[Cohere Reasoning]
 
     COHERE --> PRODUCT[Product Tools]
     COHERE --> CART[Cart Tools]
     COHERE --> ORDER[Order Tools]
-    COHERE --> RAG[RAG Search]
+    COHERE --> RAG[RAG Product Retrieval]
 
     PRODUCT --> DB[(Supabase PostgreSQL)]
     CART --> DB
@@ -115,10 +117,175 @@ flowchart TD
 
     GROQ --> API
 
-    API -->|Structured JSON| UI
+    API -->|Structured JSON Response| UI
 
-    UI -->|Text for speech| NODE
+    UI -->|Response Text| NODE
     NODE --> TTS[Python + Edge TTS]
     TTS -->|MP3 Audio| UI
 
-    UI --> USEROUT[Products / Cart / Orders / Recommendations / Voice Response]
+    UI --> OUTPUT[Products / Cart / Orders / Recommendations / Voice Response]
+```
+
+### Request Flow
+
+```text
+User
+  │
+  ├────────────── Text Query
+  │
+  └────────────── Voice Query
+                       │
+                       ▼
+             Browser Speech Recognition
+                       │
+                       ▼
+                 React + Vite
+                       │
+              ┌────────┴─────────┐
+              │                  │
+              ▼                  ▼
+       Supabase Auth       Node Voice Server
+                                 │
+                                 ▼
+                         FastAPI AI Backend
+                                 │
+                                 ▼
+                              Cohere
+                                 │
+              ┌──────────────────┼──────────────────┐
+              ▼                  ▼                  ▼
+        Product Tools       Cart / Orders          RAG
+              │                  │                  │
+              └──────────────────┼──────────────────┘
+                                 ▼
+                              Supabase
+                                 │
+                                 ▼
+                               Groq
+                                 │
+                                 ▼
+                       Structured Response
+                                 │
+                                 ▼
+                            React UI
+                          /          \
+                         ▼            ▼
+                  Visual Output    Voice TTS
+```
+
+---
+
+# 5. Interface
+
+## Home Page
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/Home.png" alt="EchOo Home Page" width="900">
+</p>
+
+---
+
+## AI Voice Assistant
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/AI.png" alt="EchOo AI Voice Assistant" width="900">
+</p>
+
+---
+
+## Shopping Menu
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/Menu.png" alt="EchOo Shopping Menu" width="900">
+</p>
+
+---
+
+## Orders
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/Orders.png" alt="EchOo Orders Page" width="900">
+</p>
+
+---
+
+## Admin Interface
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/Adminside.png" alt="EchOo Admin Interface" width="900">
+</p>
+
+---
+
+# 6. Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19 |
+| Build Tool | Vite |
+| Routing | React Router |
+| UI / Icons | Lucide React, Heroicons |
+| Animation | Framer Motion |
+| Authentication | Supabase Auth |
+| Database | Supabase PostgreSQL |
+| Backend API | Python + FastAPI |
+| Voice Server | Node.js + Express |
+| Voice Recognition | Web Speech Recognition API |
+| Text-to-Speech | Python + Edge TTS |
+| AI Reasoning | Cohere |
+| Response Generation | Groq — `openai/gpt-oss-120b` |
+| Product Retrieval | RAG |
+| Search / Matching | RapidFuzz |
+| HTTP Communication | Fetch, HTTPX, Requests |
+| Containerization | Docker |
+| Deployment | Render |
+| Version Control | Git + GitHub |
+
+---
+
+# 7. Environment Configuration
+
+Environment files and private API credentials are not committed to the repository.
+
+## Frontend Environment
+
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+
+VITE_ASSISTANT_API_URL=https://grocery-chatbot-api.onrender.com
+
+VITE_VOICE_API_URL=http://localhost:5000
+
+VITE_ASSISTANT_VOICE=en-IN-NeerjaNeural
+VITE_INPUT_LANGUAGE=en-IN
+```
+
+## AI Backend Environment
+
+```env
+SUPABASE_URL=YOUR_SUPABASE_URL
+SUPABASE_PUBLISHABLE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
+SUPABASE_SECRET_KEY=YOUR_SUPABASE_SECRET_KEY
+
+COHERE_API_KEY=YOUR_COHERE_API_KEY
+COHERE_MODEL=YOUR_COHERE_MODEL
+
+GROQ_API_KEY=YOUR_GROQ_API_KEY
+GROQ_API_KEY1=YOUR_SECOND_GROQ_API_KEY
+GROQ_API_KEY2=YOUR_THIRD_GROQ_API_KEY
+
+GROQ_MODEL=openai/gpt-oss-120b
+GROQ_TEMPERATURE=0.0
+
+RAG_MATCH_COUNT=5
+MAX_CHAT_HISTORY=10
+```
+
+> Secret keys are stored securely as deployment environment variables and are never committed to GitHub.
+
+---
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/AI.png" alt="EchOo Voice Command Grocery Shopping Assistant" width="900">
+</p>
