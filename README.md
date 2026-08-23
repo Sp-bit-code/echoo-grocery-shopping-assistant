@@ -240,7 +240,3 @@ MAX_CHAT_HISTORY=10
 > Secret keys are stored securely as deployment environment variables and are never committed to GitHub.
 
 ---
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Sp-bit-code/echoo-grocery-shopping-assistant/main/Interface%20images/AI.png" alt="EchOo Voice Command Grocery Shopping Assistant" width="900"/>
-</p>
